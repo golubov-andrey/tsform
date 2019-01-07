@@ -1,0 +1,18 @@
+{
+  "name": "tsform",
+  "version": "0.1.0",
+  "description": "Library for easy making form with TypeScript + React",
+  "main": "lib/index.js",
+  "repository": "git@github.com:golubov-andrey/tsform.git",
+  "author": "Golubov Andrey <golubov.andrey.pavlovich@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "tsc": "tsc",
+    "tslint": "tslint"
+  },
+  "devDependencies": {
+    "tslint": "^5.12.0",
+    "typescript": "^3.2.2"
+  }
+}
