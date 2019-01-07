@@ -1,12 +1,12 @@
 import * as Primitive from '~/field/primitive';
 
 export type TypeKey = 'Int';
-export type TypeValue = number;
+export type Type = number;
 
 /**
  * Primitve `IntField`
  */
-export class Field extends Primitive.Field<TypeValue, TypeKey> {
+export class Field extends Primitive.Field<Type, TypeKey> {
   /**
    * TypeKey of `IntField`
    */
@@ -14,7 +14,7 @@ export class Field extends Primitive.Field<TypeValue, TypeKey> {
   /**
    * Default value of `IntField`
    */
-  public static DefaultValue: TypeValue = 0;
+  public static DefaultValue: Type = 0;
   /**
    * TypeKey of `IntField`
    */
@@ -24,7 +24,7 @@ export class Field extends Primitive.Field<TypeValue, TypeKey> {
    * @param value `imutable` value of `IntField`
    */
   public constructor(
-    readonly value: TypeValue = Field.DefaultValue,
+    readonly value: Type = Field.DefaultValue,
   ) { super(); }
 }
 
@@ -32,4 +32,4 @@ export class Field extends Primitive.Field<TypeValue, TypeKey> {
  * Returns the `IntField` with the value specified in the function argument
  * @param x `imutable` value of `IntField`
  */
-export default function(x?: TypeValue) { return new Field(x); }
+export default function(x?: Type) { return new Field(x); }
