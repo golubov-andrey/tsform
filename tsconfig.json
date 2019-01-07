@@ -9,7 +9,9 @@
     "baseUrl": ".",
     "paths": {
       "~/*": ["./src/*"]
-    }
+    },
+    "outDir": "./lib",
+    "declaration": true,
   },
   "include": [
     "src/index.ts"
