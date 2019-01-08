@@ -30,7 +30,7 @@ export class Field extends Primitive.Field<Type, TypeKey> {
 
 /**
  * Returns the `IntField` with the value specified in the function argument
- * @param x `imutable` value of `IntField`
+ * @param x `imutable` value of `IntField` (`default: 0`)
  */
 export default function(x?: Type) {
   return new Field(x);

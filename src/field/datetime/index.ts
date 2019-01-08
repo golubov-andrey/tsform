@@ -30,7 +30,7 @@ export class Field extends Primitive.Field<Type, TypeKey> {
 
 /**
  * Returns the `DatetimeField` with the value specified in the function argument
- * @param x `imutable` value of `DatetimeField`
+ * @param x `imutable` value of `DatetimeField` (`default: 'new Date()'`)
  */
 export default function(x?: Type) {
   return new Field(x);
