@@ -20,7 +20,7 @@ export class Field extends Primitive.Field<Type, TypeKey> {
    */
   public readonly type: TypeKey = 'Int';
   /**
-   * Primitive `IntField`
+   * Returned primitive `IntField`
    * @param value `imutable` value of `IntField` (`default: 0`)
    */
   public constructor(

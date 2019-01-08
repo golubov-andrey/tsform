@@ -38,7 +38,7 @@ export class Field extends Primitive.Field<Type, TypeKey> {
    */
   public readonly step: Step = Field.DefaultStep;
   /**
-   * Primitive `FloatField`
+   * Returned primitive `FloatField`
    * @param value `imutable` value of `FloatField` (`default: 0`)
    * @param precision `imutable` precision of `FloatField` (`default: 2`) with property is not round value, but slice
    */
