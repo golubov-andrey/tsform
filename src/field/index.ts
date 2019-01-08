@@ -8,7 +8,6 @@ import * as Str from './str';
 import * as Text from './text';
 
 export type Primitive = Bool.Field|Datetime.Field|Float.Field|Int.Field|Nil.Field|Str.Field|Text.Field;
-export type Nontrivial<T> = Primitive|Hash.Type<T>;
 
 export default {
   bool: Bool.default,
