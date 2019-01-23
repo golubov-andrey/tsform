@@ -1,4 +1,4 @@
-import * as Primitive from '~/field/primitive';
+import * as Primitive from '../primitive';
 
 export type TypeKey = 'Nil';
 export type Type = null|undefined;
@@ -28,6 +28,6 @@ export class Field extends Primitive.Field<Type, TypeKey> {
 /**
  * Returns an instance of the class `NilField`
  */
-export default function() {
+export default function nil() {
   return new Field();
 }

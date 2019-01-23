@@ -1,4 +1,4 @@
-import * as Primitive from '~/field/primitive';
+import * as Primitive from '../primitive';
 
 export type TypeKey = 'Int';
 export type Type = number;
@@ -32,6 +32,6 @@ export class Field extends Primitive.Field<Type, TypeKey> {
  * Returns the `IntField` with the value specified in the function argument
  * @param x `imutable` value of `IntField` (`default: 0`)
  */
-export default function(x?: Type) {
+export default function int(x?: Type) {
   return new Field(x);
 }

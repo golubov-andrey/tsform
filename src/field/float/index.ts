@@ -1,4 +1,4 @@
-import * as Primitive from '~/field/primitive';
+import * as Primitive from '../primitive';
 
 export type TypeKey = 'Float';
 export type Type = number;
@@ -69,6 +69,6 @@ export class Field extends Primitive.Field<Type, TypeKey> {
  * @param x floating point number (`default: 0`) of `imutable` value in `FloatField`
  * @param precision `imutable` precision of `FloatField` (`default: 2`) with property is not round value, but slice
  */
-export default function(x?: Type, precision?: Precision) {
+export default function float(x?: Type, precision?: Precision) {
   return new Field(x, precision);
 }

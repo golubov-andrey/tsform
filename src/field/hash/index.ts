@@ -1,5 +1,5 @@
-import f, { Primitive as PrimitiveField } from '~/field';
-import * as Primitive from '~/field/primitive';
+import { Primitive as PrimitiveField } from '../index';
+import * as Primitive from '../primitive';
 
 export type TypeKey = 'Hash';
 export type Type<T> = { [K in keyof T]: T[K] extends PrimitiveField | IType<T> ? T[K] : undefined };

@@ -1,4 +1,4 @@
-import * as Primitive from '~/field/primitive';
+import * as Primitive from '../primitive';
 
 export type TypeKey = 'Bool';
 export type Type = boolean;
@@ -32,6 +32,6 @@ export class Field extends Primitive.Field<Type, TypeKey> {
  * Returns the `BoolField` with the value specified in the function argument
  * @param x `imutable` value of `BoolField` (`default: false`)
  */
-export default function(x?: Type) {
+export default function bool(x?: Type) {
   return new Field(x);
 }
