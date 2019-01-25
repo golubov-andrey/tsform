@@ -1,17 +1,18 @@
-import f, { Primitive } from '../index';
+import { Arr } from '../array';
+import f, { Complex, Primitive } from '../index';
 import { Field } from '../primitive';
 
 export type TypeKey = 'Hash';
 // tslint:disable-next-line:max-line-length
-export type Type<T> = { [K in keyof T]: T[K] extends Primitive ? T[K] : T[K] extends IType<any> ? IType<T[K]['value']> : never };
+export type Type<T> = { [K in keyof T]: T[K] extends Primitive ? T[K] : T[K] extends IType<any> ? IType<T[K]['value']> : T[K] extends Arr<any> ? Arr<T[K]['value']> : never };
 export interface IType<T> extends Hash<T> { }
 // tslint:disable-next-line:max-line-length
-export type Extract<V> =  { [K in keyof V]: V[K] extends Primitive ? V[K]['value'] : V[K] extends IType<any> ? ReturnType<V[K]['extract']> : never };
+export type Extract<V> =  { [K in keyof V]: V[K] extends Primitive ? V[K]['value'] : V[K] extends Complex<any> ? ReturnType<V[K]['extract']> : never };
 
 /**
  * Complex `HashField`
  */
-export class Hash<V> extends Field<Type<V>, TypeKey> {
+export class Hash<V extends Record<string, any>> extends Field<Type<V>, TypeKey> {
   /**
    * Typekey of `HashField`
    */
@@ -73,7 +74,8 @@ export class Hash<V> extends Field<Type<V>, TypeKey> {
   public extract(): Extract<V> {
     return (Object.keys(this.value) as Array<keyof Type<V>>).reduce((acc, key) => {
       switch (this.value[key].type) {
-        case 'Hash': acc[key] = (this.value[key] as IType<any>).extract(); break;
+        case 'Array':
+        case 'Hash': acc[key] = (this.value[key] as Complex<any>).extract(); break;
         default: acc[key] = this.value[key].toPrimitive();
       }
       return acc;
