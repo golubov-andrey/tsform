@@ -1,3 +1,3 @@
 # ![TsForm](./resources/logo.png)
 
-Library for easy making from with TypeScript + React
+Library for easy making form with TypeScript + React
