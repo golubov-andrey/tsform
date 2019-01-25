@@ -6,7 +6,7 @@ export type Type = string;
 /**
  * Primitive `TextField`
  */
-export class Field extends Primitive.Field<Type, TypeKey> {
+export class Text extends Primitive.Field<Type, TypeKey> {
   /**
    * TypeKey of `TextField`
    */
@@ -24,7 +24,7 @@ export class Field extends Primitive.Field<Type, TypeKey> {
    * @param value `imutable` value of `TextField` (`default: ''`)
    */
   public constructor(
-    readonly value: Type = Field.DefaultValue,
+    readonly value: Type = Text.DefaultValue,
   ) { super(); }
 }
 
@@ -33,5 +33,5 @@ export class Field extends Primitive.Field<Type, TypeKey> {
  * @param x string (`default: ''`) `imutable` value of `TextField`
  */
 export default function text(x?: Type) {
-  return new Field(x);
+  return new Text(x);
 }

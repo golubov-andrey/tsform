@@ -6,7 +6,7 @@ export type Type = number;
 /**
  * Primitve `IntField`
  */
-export class Field extends Primitive.Field<Type, TypeKey> {
+export class Int extends Primitive.Field<Type, TypeKey> {
   /**
    * TypeKey of `IntField`
    */
@@ -24,7 +24,7 @@ export class Field extends Primitive.Field<Type, TypeKey> {
    * @param value `imutable` value of `IntField` (`default: 0`)
    */
   public constructor(
-    readonly value: Type = Field.DefaultValue,
+    readonly value: Type = Int.DefaultValue,
   ) { super(); }
 }
 
@@ -33,5 +33,5 @@ export class Field extends Primitive.Field<Type, TypeKey> {
  * @param x `imutable` value of `IntField` (`default: 0`)
  */
 export default function int(x?: Type) {
-  return new Field(x);
+  return new Int(x);
 }

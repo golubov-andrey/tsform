@@ -6,7 +6,7 @@ export type Type = null|undefined;
 /**
  * Primitive `NilField`
  */
-export class Field extends Primitive.Field<Type, TypeKey> {
+export class Nil extends Primitive.Field<Type, TypeKey> {
   /**
    * TypeKey of `NilField`
    */
@@ -29,5 +29,5 @@ export class Field extends Primitive.Field<Type, TypeKey> {
  * Returns an instance of the class `NilField`
  */
 export default function nil() {
-  return new Field();
+  return new Nil();
 }

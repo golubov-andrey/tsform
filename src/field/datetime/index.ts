@@ -6,7 +6,7 @@ export type Type = Date;
 /**
  * Primitve `DatetimeField`
  */
-export class Field extends Primitive.Field<Type, TypeKey> {
+export class Datetime extends Primitive.Field<Type, TypeKey> {
   /**
    * TypeKey of `DatetimeField`
    */
@@ -24,7 +24,7 @@ export class Field extends Primitive.Field<Type, TypeKey> {
    * @param value `imutable` value of `DatetimeField` (`default: 'new Date()'`)
    */
   public constructor(
-    readonly value: Type = Field.DefaultValue(),
+    readonly value: Type = Datetime.DefaultValue(),
   ) { super(); }
 }
 
@@ -33,5 +33,5 @@ export class Field extends Primitive.Field<Type, TypeKey> {
  * @param x `imutable` value of `DatetimeField` (`default: 'new Date()'`)
  */
 export default function datetime(x?: Type) {
-  return new Field(x);
+  return new Datetime(x);
 }

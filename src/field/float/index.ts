@@ -8,7 +8,7 @@ export type Step = number;
 /**
  * Primitve `FloatField`
  */
-export class Field extends Primitive.Field<Type, TypeKey> {
+export class Float extends Primitive.Field<Type, TypeKey> {
   /**
    * TypeKey of `FloatField`
    */
@@ -32,18 +32,18 @@ export class Field extends Primitive.Field<Type, TypeKey> {
   /**
    * Number of char after point in `FloatField` value
    */
-  public readonly precision: Precision = Field.DefaultPrecision;
+  public readonly precision: Precision = Float.DefaultPrecision;
   /**
    * Step of `FloatField`
    */
-  public readonly step: Step = Field.DefaultStep;
+  public readonly step: Step = Float.DefaultStep;
   /**
    * Returned primitive `FloatField`
    * @param value `imutable` value of `FloatField` (`default: 0`)
    * @param precision `imutable` precision of `FloatField` (`default: 2`) with property is not round value, but slice
    */
   public constructor(
-    readonly value: Type = Field.DefaultValue,
+    readonly value: Type = Float.DefaultValue,
     precision?: Precision,
   ) {
     super();
@@ -70,5 +70,5 @@ export class Field extends Primitive.Field<Type, TypeKey> {
  * @param precision `imutable` precision of `FloatField` (`default: 2`) with property is not round value, but slice
  */
 export default function float(x?: Type, precision?: Precision) {
-  return new Field(x, precision);
+  return new Float(x, precision);
 }

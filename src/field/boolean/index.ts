@@ -6,7 +6,7 @@ export type Type = boolean;
 /**
  * Primitve `BoolField`
  */
-export class Field extends Primitive.Field<Type, TypeKey> {
+export class Bool extends Primitive.Field<Type, TypeKey> {
   /**
    * TypeKey of `BoolField`
    */
@@ -24,7 +24,7 @@ export class Field extends Primitive.Field<Type, TypeKey> {
    * @param value `imutable` value of `BoolField` (`default: false`)
    */
   public constructor(
-    readonly value: Type = Field.DefaultValue,
+    readonly value: Type = Bool.DefaultValue,
   ) { super(); }
 }
 
@@ -33,5 +33,5 @@ export class Field extends Primitive.Field<Type, TypeKey> {
  * @param x `imutable` value of `BoolField` (`default: false`)
  */
 export default function bool(x?: Type) {
-  return new Field(x);
+  return new Bool(x);
 }
