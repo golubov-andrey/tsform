@@ -1,4 +1,4 @@
-import * as Primitive from '../primitive';
+import PrimitiveField from '../primitive';
 
 export type TypeKey = 'Nil';
 export type Type = null|undefined;
@@ -6,7 +6,7 @@ export type Type = null|undefined;
 /**
  * Primitive `NilField`
  */
-export class Nil extends Primitive.Field<Type, TypeKey> {
+export class Nil extends PrimitiveField<Type, TypeKey> {
   /**
    * TypeKey of `NilField`
    */

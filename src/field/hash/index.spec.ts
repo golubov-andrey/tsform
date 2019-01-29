@@ -3,7 +3,7 @@ import f from '../index';
 import { Hash } from './index';
 
 describe('HashField', () => {
-  const now = new Date();
+  /*const now = new Date();
   const unixStart = new Date(1);
   const primitiveValues = {
     bool: false,
@@ -39,9 +39,9 @@ describe('HashField', () => {
     int: f.int(251),
     str: f.str('Some text'),
     text: f.text('Some long text'),
-  };
+  };*/
 
-  const primitiveWithoutValues = {
+  /*const primitiveWithoutValues = {
     bool: f.bool(),
     datetime: f.datetime(),
     float: f.float(),
@@ -64,15 +64,12 @@ describe('HashField', () => {
     expect(example).to.have.property('type', Hash.Type);
     expect(example).to.have.property('value', primitiveWithoutValues);
   });
-  it('Check toPtimitive', () => {
-    expect(f.hash(primitiveWithValues).toPrimitive()).to.deep.eq(primitiveWithValues);
-  });
 
-  it('Check from', () => {
+  /*it('Check from', () => {
     expect(f.hash(primitiveWithoutValues).from(primitiveValues)).to.deep.eq(f.hash(primitiveWithValues));
   });
 
   it('Check extenct', () => {
     expect(f.hash(primitiveWithValues).extract()).to.deep.eq(primitiveValues);
-  });
+  });*/
 });

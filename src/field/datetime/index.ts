@@ -1,4 +1,4 @@
-import * as Primitive from '../primitive';
+import PrimitiveField from '../primitive';
 
 export type TypeKey = 'Datetime';
 export type Type = Date;
@@ -6,7 +6,7 @@ export type Type = Date;
 /**
  * Primitve `DatetimeField`
  */
-export class Datetime extends Primitive.Field<Type, TypeKey> {
+export class Datetime extends PrimitiveField<Type, TypeKey> {
   /**
    * TypeKey of `DatetimeField`
    */

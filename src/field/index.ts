@@ -1,4 +1,4 @@
-import array, { Arr } from './array';
+//import array, { Arr } from './array';
 import bool, { Bool } from './boolean';
 import datetime, { Datetime } from './datetime';
 import float, { Float } from './float';
@@ -9,10 +9,23 @@ import str, { Str } from './str';
 import text, { Text } from './text';
 
 export type Primitive = Bool|Datetime|Float|Int|Nil|Str|Text;
-export type Complex<T> = Hash<T>|Arr<T>;
+export type Complex<T> = Hash<T>//|Arr<T>;
+export type Combine<T = any> = Primitive|Complex<T>;
+
+export abstract class Field<V, T> {
+  public abstract type: T;
+  public abstract value: V;
+  public abstract instance: new(value: V) => Field<V, T>;
+
+  public extract(): V { return this.value; }
+  public from(primitive: V): Field<V, T> {
+    return new this.instance(primitive);
+  }
+}
+
 
 export default {
-  array,
+  //array,
   bool,
   datetime,
   float,

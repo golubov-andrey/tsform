@@ -1,4 +1,5 @@
 import { expect } from 'chai';
+import * as f from './fp';
 import int, { Int } from './index';
 
 describe('IntField', () => {
@@ -6,6 +7,10 @@ describe('IntField', () => {
     const example = int();
     expect(example).to.have.property('type', Int.Type);
     expect(example).to.have.property('value', Int.DefaultValue);
+    const ex = f.extract(f.hash({ t: f.hash({ t: f.int(1) }), z: f.array(f.int(2)) }));
+    expect(ex).to.deep.eq({
+      t: [{ t: 1 }],
+    });
   });
 
   it('Simple construct', () => {

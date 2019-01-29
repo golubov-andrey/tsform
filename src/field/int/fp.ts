@@ -6,6 +6,14 @@ export function float(value: number, step: number = 0.1) {
   return Object.freeze({ type: 'Float' as 'Float', value });
 }
 
+export function string(value: string) {
+  return Object.freeze({ type: 'String' as 'String', value });
+}
+
+export function boolean(value: boolean) {
+  return Object.freeze({ type: 'Boolean' as 'Boolean', value });
+}
+
 export function hash<T extends Record<string, Combine>>(value: T) {
   return Object.freeze({ type: 'Hash' as 'Hash', value });
 }
@@ -40,13 +48,15 @@ export function extract(combine: Combine): Extract<Combine> {
     case 'Array':
     case 'Hash':
       return Object.keys(combine.value).reduce((acc, key) => {
-        const property = acc[key] as Combine;
+        // @ts-ignore
+        const property = combine.value[key] as Combine;
         switch (property.type) {
           case 'Int':
           case 'Float':
             return Object.assign(acc, {[key]: property.value});
           case 'Array':
           case 'Hash':
+          // TODO: сделать массивом
             return Object.assign(acc, {[key]: extract(property)}) as any;
         }
       }, combine.value) as any;
@@ -54,10 +64,15 @@ export function extract(combine: Combine): Extract<Combine> {
   return {} as any;
 }
 
-export const z = hash({
-  someA: array(hash({ t: int(1), z: hash({ t: float(1) }) })),
-  someInt: int(1),
-  someT: hash({ someFloat: float(1.2) }),
-});
+export function from<T extends Combine>(combine: T, primitive: Extract<T>): T;
+export function from(combine: Combine, primitive: Extract<Combine>): Combine {
+  switch (combine.type) {
+    case 'Int': return int(primitive as number);
+    case 'Float': return float(primitive as number);
+    case 'Hash': return hash(Object.keys(combine.value).reduce((acc, key) => {
+      return acc;
+    }, {}));
+  }
 
-extract(z);
+  return {} as any;
+}

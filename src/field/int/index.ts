@@ -1,4 +1,4 @@
-import * as Primitive from '../primitive';
+import PrimitiveField from '../primitive';
 
 export type TypeKey = 'Int';
 export type Type = number;
@@ -6,7 +6,7 @@ export type Type = number;
 /**
  * Primitve `IntField`
  */
-export class Int extends Primitive.Field<Type, TypeKey> {
+export class Int extends PrimitiveField<Type, TypeKey> {
   /**
    * TypeKey of `IntField`
    */

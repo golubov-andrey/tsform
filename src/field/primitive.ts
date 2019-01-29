@@ -1,7 +1,7 @@
 /**
  * API primitive field
  */
-export abstract class Field<Value, Type> {
+export default abstract class PrimitiveField<Value = number|string|boolean|Date|null, Type = string> {
   /**
    * TypeKey of `PrimitiveField`
    */

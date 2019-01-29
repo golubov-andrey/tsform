@@ -1,4 +1,4 @@
-import * as Primitive from '../primitive';
+import PrimitiveField from '../primitive';
 
 export type TypeKey = 'Bool';
 export type Type = boolean;
@@ -6,7 +6,7 @@ export type Type = boolean;
 /**
  * Primitve `BoolField`
  */
-export class Bool extends Primitive.Field<Type, TypeKey> {
+export class Bool extends PrimitiveField<Type, TypeKey> {
   /**
    * TypeKey of `BoolField`
    */
